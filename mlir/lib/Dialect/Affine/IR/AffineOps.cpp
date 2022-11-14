@@ -686,6 +686,8 @@ static void simplifyExprAndOperands(AffineExpr &expr,
   expr = getAffineBinaryOpExpr(binExpr.getKind(), lhs, rhs);
 
   binExpr = expr.dyn_cast<AffineBinaryOpExpr>();
+  lhs = binExpr.getLHS();
+  rhs = binExpr.getRHS();
   if (!binExpr || (binExpr.getKind() != AffineExprKind::FloorDiv &&
                    binExpr.getKind() != AffineExprKind::Mod)) {
     return;
