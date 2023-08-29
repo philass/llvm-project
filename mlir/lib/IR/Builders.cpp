@@ -125,10 +125,6 @@ IntegerAttr Builder::getIndexAttr(int64_t value) {
   return IntegerAttr::get(getIndexType(), APInt(64, value));
 }
 
-IntegerAttr Builder::getI64IntegerAttr(int64_t value) {
-  return IntegerAttr::get(getIntegerType(64), APInt(64, value));
-}
-
 DenseIntElementsAttr Builder::getBoolVectorAttr(ArrayRef<bool> values) {
   return DenseIntElementsAttr::get(
       VectorType::get(static_cast<int64_t>(values.size()), getI1Type()),
@@ -213,6 +209,20 @@ DenseIntElementsAttr Builder::getIndexTensorAttr(ArrayRef<int64_t> values) {
       values);
 }
 
+IntegerAttr Builder::getI64IntegerAttr(int64_t value) {
+  return IntegerAttr::get(getIntegerType(64), APInt(64, value));
+}
+
+IntegerAttr Builder::getSI64IntegerAttr(int64_t value) {
+  return IntegerAttr::get(getIntegerType(64, /*isSigned=*/true),
+                          APInt(64, value, /*isSigned=*/true));
+}
+
+IntegerAttr Builder::getUI64IntegerAttr(uint64_t value) {
+  return IntegerAttr::get(getIntegerType(64, /*isSigned=*/false),
+                          APInt(64, value, /*isSigned=*/false));
+}
+
 IntegerAttr Builder::getI32IntegerAttr(int32_t value) {
   return IntegerAttr::get(getIntegerType(32), APInt(32, value));
 }
@@ -231,8 +241,28 @@ IntegerAttr Builder::getI16IntegerAttr(int16_t value) {
   return IntegerAttr::get(getIntegerType(16), APInt(16, value));
 }
 
+IntegerAttr Builder::getSI16IntegerAttr(int16_t value) {
+  return IntegerAttr::get(getIntegerType(16, /*isSigned=*/true),
+                          APInt(16, value, /*isSigned=*/true));
+}
+
+IntegerAttr Builder::getUI16IntegerAttr(uint16_t value) {
+  return IntegerAttr::get(getIntegerType(16, /*isSigned=*/false),
+                          APInt(16, (uint64_t)value, /*isSigned=*/false));
+}
+
 IntegerAttr Builder::getI8IntegerAttr(int8_t value) {
   return IntegerAttr::get(getIntegerType(8), APInt(8, value));
+}
+
+IntegerAttr Builder::getSI8IntegerAttr(int8_t value) {
+  return IntegerAttr::get(getIntegerType(8, /*isSigned=*/true),
+                          APInt(8, value, /*isSigned=*/true));
+}
+
+IntegerAttr Builder::getUI8IntegerAttr(uint8_t value) {
+  return IntegerAttr::get(getIntegerType(8, /*isSigned=*/false),
+                          APInt(8, (uint64_t)value, /*isSigned=*/false));
 }
 
 IntegerAttr Builder::getIntegerAttr(Type type, int64_t value) {

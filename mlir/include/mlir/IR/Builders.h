@@ -130,9 +130,17 @@ public:
   IntegerAttr getI64IntegerAttr(int64_t value);
   IntegerAttr getIndexAttr(int64_t value);
 
-  /// Signed and unsigned integer attribute getters.
+  /// Signed attribute getters.
+  IntegerAttr getSI8IntegerAttr(int8_t value);
+  IntegerAttr getSI16IntegerAttr(int16_t value);
   IntegerAttr getSI32IntegerAttr(int32_t value);
+  IntegerAttr getSI64IntegerAttr(int64_t value);
+
+  /// Unsigned attribute getters.
+  IntegerAttr getUI8IntegerAttr(uint8_t value);
+  IntegerAttr getUI16IntegerAttr(uint16_t value);
   IntegerAttr getUI32IntegerAttr(uint32_t value);
+  IntegerAttr getUI64IntegerAttr(uint64_t value);
 
   /// Vector-typed DenseIntElementsAttr getters. `values` must not be empty.
   DenseIntElementsAttr getBoolVectorAttr(ArrayRef<bool> values);
