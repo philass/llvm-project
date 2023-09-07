@@ -17,6 +17,13 @@ func.func @broadcast_tensor_scalar_tensor(tensor<4xi32>, tensor<i32>) -> tensor<
   return %0 : tensor<4xi32>
 }
 
+func.func @broadcast_tensor_scalar_extra_tensor(tensor<1x1x1x1xi32>, tensor<1x12x12x12xi32>) -> tensor<1x12x12x12xi32> {
+^bb0(%arg0: tensor<1x1x1x1xi32>, %arg1: tensor<1x12x12x12xi32>):
+  %0 = "test.broadcastable"(%arg0, %arg1) : (tensor<1x1x1x1xi32>, tensor<1x12x12x12xi32>) -> tensor<1x12x12x12xi32>
+  return %0 : tensor<1x12x12x12xi32>
+}
+
+
 // -----
 
 // Check only one dimension has size 1
@@ -114,10 +121,6 @@ func.func @broadcast_tensor_tensor_tensor(tensor<4x3x2xi32>, tensor<?xi32>) -> t
 // It is alright to have an implicit dynamic-to-static cast in a dimension size
 // as long as the runtime result size is consistent with the result tensor's
 // static dimension.
-func.func @broadcast_tensor_tensor_tensor(%arg0: tensor<?xi32>, %arg1: tensor<?xi32>) -> tensor<2xi32> {
-  %0 = "test.broadcastable"(%arg0, %arg1) : (tensor<?xi32>, tensor<?xi32>) -> tensor<2xi32>
-  return %0 : tensor<2xi32>
-}
 
 // -----
 
@@ -176,4 +179,15 @@ func.func @broadcastDifferentResultType(tensor<4xi32>, tensor<4xi32>) -> tensor<
 ^bb0(%arg0: tensor<4xi32>, %arg1: tensor<4xi32>):
   %0 = "test.broadcastable"(%arg0, %arg1) : (tensor<4xi32>, tensor<4xi32>) -> tensor<4xi1>
   return %0 : tensor<4xi1>
+}
+
+func.func @broadcast_tensor_tensor_tensor(%arg0: tensor<?xi32>, %arg1: tensor<?xi32>) -> tensor<2xi32> {
+  %0 = "test.broadcastable"(%arg0, %arg1) : (tensor<?xi32>, tensor<?xi32>) -> tensor<2xi32>
+  return %0 : tensor<2xi32>
+}
+
+func.func @broadcast_tensor_scalar_extra_tensor(tensor<?xi32>, tensor<1x1x1x1xi32>) -> tensor<1x12x12x12xi32> {
+^bb0(%arg0: tensor<?xi32>, %arg1: tensor<1x1x1x1xi32>):
+  %0 = "test.broadcastable"(%arg0, %arg1) : (tensor<?xi32>, tensor<1x1x1x1xi32>) -> tensor<1x12x12x12xi32>
+  return %0 : tensor<1x12x12x12xi32>
 }
