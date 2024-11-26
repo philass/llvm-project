@@ -252,6 +252,25 @@ def _denseI32ArrayAttr(x, context):
 def _denseI64ArrayAttr(x, context):
     return DenseI64ArrayAttr.get(x, context=context)
 
+@register_attribute_builder("DenseUI8ArrayAttr")
+def _denseUI8ArrayAttr(x, context):
+    return DenseUI8ArrayAttr.get(x, context=context)
+
+
+@register_attribute_builder("DenseUI16ArrayAttr")
+def _denseUI16ArrayAttr(x, context):
+    return DenseUI16ArrayAttr.get(x, context=context)
+
+
+@register_attribute_builder("DenseUI32ArrayAttr")
+def _denseUI32ArrayAttr(x, context):
+    return DenseUI32ArrayAttr.get(x, context=context)
+
+
+@register_attribute_builder("DenseUI64ArrayAttr")
+def _denseUI64ArrayAttr(x, context):
+    return DenseUI64ArrayAttr.get(x, context=context)
+
 
 @register_attribute_builder("DenseBoolArrayAttr")
 def _denseBoolArrayAttr(x, context):

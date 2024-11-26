@@ -322,6 +322,42 @@ struct PyDenseI64ArrayAttribute
   static constexpr const char *pyIteratorName = "DenseI64ArrayIterator";
   using PyDenseArrayAttribute::PyDenseArrayAttribute;
 };
+struct PyDenseUI8ArrayAttribute
+    : public PyDenseArrayAttribute<uint8_t, PyDenseUI8ArrayAttribute> {
+  static constexpr IsAFunctionTy isaFunction = mlirAttributeIsADenseUI8Array;
+  static constexpr auto getAttribute = mlirDenseUI8ArrayGet;
+  static constexpr auto getElement = mlirDenseUI8ArrayGetElement;
+  static constexpr const char *pyClassName = "DenseUI8ArrayAttr";
+  static constexpr const char *pyIteratorName = "DenseI8ArrayIterator";
+  using PyDenseArrayAttribute::PyDenseArrayAttribute;
+};
+struct PyDenseUI16ArrayAttribute
+    : public PyDenseArrayAttribute<uint16_t, PyDenseUI16ArrayAttribute> {
+  static constexpr IsAFunctionTy isaFunction = mlirAttributeIsADenseUI16Array;
+  static constexpr auto getAttribute = mlirDenseUI16ArrayGet;
+  static constexpr auto getElement = mlirDenseUI16ArrayGetElement;
+  static constexpr const char *pyClassName = "DenseUI16ArrayAttr";
+  static constexpr const char *pyIteratorName = "DenseUI16ArrayIterator";
+  using PyDenseArrayAttribute::PyDenseArrayAttribute;
+};
+struct PyDenseUI32ArrayAttribute
+    : public PyDenseArrayAttribute<uint32_t, PyDenseUI32ArrayAttribute> {
+  static constexpr IsAFunctionTy isaFunction = mlirAttributeIsADenseUI32Array;
+  static constexpr auto getAttribute = mlirDenseUI32ArrayGet;
+  static constexpr auto getElement = mlirDenseUI32ArrayGetElement;
+  static constexpr const char *pyClassName = "DenseUI32ArrayAttr";
+  static constexpr const char *pyIteratorName = "DenseUI32ArrayIterator";
+  using PyDenseArrayAttribute::PyDenseArrayAttribute;
+};
+struct PyDenseUI64ArrayAttribute
+    : public PyDenseArrayAttribute<uint64_t, PyDenseUI64ArrayAttribute> {
+  static constexpr IsAFunctionTy isaFunction = mlirAttributeIsADenseUI64Array;
+  static constexpr auto getAttribute = mlirDenseUI64ArrayGet;
+  static constexpr auto getElement = mlirDenseUI64ArrayGetElement;
+  static constexpr const char *pyClassName = "DenseUI64ArrayAttr";
+  static constexpr const char *pyIteratorName = "DenseUI64ArrayIterator";
+  using PyDenseArrayAttribute::PyDenseArrayAttribute;
+};
 struct PyDenseF32ArrayAttribute
     : public PyDenseArrayAttribute<float, PyDenseF32ArrayAttribute> {
   static constexpr IsAFunctionTy isaFunction = mlirAttributeIsADenseF32Array;
@@ -1556,6 +1592,14 @@ void mlir::python::populateIRAttributes(py::module &m) {
   PyDenseI32ArrayAttribute::PyDenseArrayIterator::bind(m);
   PyDenseI64ArrayAttribute::bind(m);
   PyDenseI64ArrayAttribute::PyDenseArrayIterator::bind(m);
+  PyDenseUI8ArrayAttribute::bind(m);
+  PyDenseUI8ArrayAttribute::PyDenseArrayIterator::bind(m);
+  PyDenseUI16ArrayAttribute::bind(m);
+  PyDenseUI16ArrayAttribute::PyDenseArrayIterator::bind(m);
+  PyDenseUI32ArrayAttribute::bind(m);
+  PyDenseUI32ArrayAttribute::PyDenseArrayIterator::bind(m);
+  PyDenseUI64ArrayAttribute::bind(m);
+  PyDenseUI64ArrayAttribute::PyDenseArrayIterator::bind(m);
   PyDenseF32ArrayAttribute::bind(m);
   PyDenseF32ArrayAttribute::PyDenseArrayIterator::bind(m);
   PyDenseF64ArrayAttribute::bind(m);

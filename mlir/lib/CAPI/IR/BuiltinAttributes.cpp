@@ -437,6 +437,26 @@ MlirAttribute mlirDenseI64ArrayGet(MlirContext ctx, intptr_t size,
   return wrap(
       DenseI64ArrayAttr::get(unwrap(ctx), ArrayRef<int64_t>(values, size)));
 }
+MlirAttribute mlirDenseUI8ArrayGet(MlirContext ctx, intptr_t size,
+                                  uint8_t const *values) {
+  return wrap(
+      DenseUI8ArrayAttr::get(unwrap(ctx), ArrayRef<uint8_t>(values, size)));
+}
+MlirAttribute mlirDenseUI16ArrayGet(MlirContext ctx, intptr_t size,
+                                   uint16_t const *values) {
+  return wrap(
+      DenseUI16ArrayAttr::get(unwrap(ctx), ArrayRef<uint16_t>(values, size)));
+}
+MlirAttribute mlirDenseI32ArrayGet(MlirContext ctx, intptr_t size,
+                                   uint32_t const *values) {
+  return wrap(
+      DenseUI32ArrayAttr::get(unwrap(ctx), ArrayRef<uint32_t>(values, size)));
+}
+MlirAttribute mlirDenseI64ArrayGet(MlirContext ctx, intptr_t size,
+                                   uint64_t const *values) {
+  return wrap(
+      DenseUI64ArrayAttr::get(unwrap(ctx), ArrayRef<uint64_t>(values, size)));
+}
 MlirAttribute mlirDenseF32ArrayGet(MlirContext ctx, intptr_t size,
                                    float const *values) {
   return wrap(
@@ -474,6 +494,18 @@ int32_t mlirDenseI32ArrayGetElement(MlirAttribute attr, intptr_t pos) {
 }
 int64_t mlirDenseI64ArrayGetElement(MlirAttribute attr, intptr_t pos) {
   return llvm::cast<DenseI64ArrayAttr>(unwrap(attr))[pos];
+}
+uint8_t mlirDenseUI8ArrayGetElement(MlirAttribute attr, intptr_t pos) {
+  return llvm::cast<DenseUI8ArrayAttr>(unwrap(attr))[pos];
+}
+uint16_t mlirDenseUI16ArrayGetElement(MlirAttribute attr, intptr_t pos) {
+  return llvm::cast<DenseUI16ArrayAttr>(unwrap(attr))[pos];
+}
+uint32_t mlirDenseUI32ArrayGetElement(MlirAttribute attr, intptr_t pos) {
+  return llvm::cast<DenseUI32ArrayAttr>(unwrap(attr))[pos];
+}
+uint64_t mlirDenseUI64ArrayGetElement(MlirAttribute attr, intptr_t pos) {
+  return llvm::cast<DenseUI64ArrayAttr>(unwrap(attr))[pos];
 }
 float mlirDenseF32ArrayGetElement(MlirAttribute attr, intptr_t pos) {
   return llvm::cast<DenseF32ArrayAttr>(unwrap(attr))[pos];

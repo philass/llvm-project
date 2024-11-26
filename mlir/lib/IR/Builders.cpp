@@ -208,6 +208,22 @@ DenseI64ArrayAttr Builder::getDenseI64ArrayAttr(ArrayRef<int64_t> values) {
   return DenseI64ArrayAttr::get(context, values);
 }
 
+DenseUI8ArrayAttr Builder::getDenseUI8ArrayAttr(ArrayRef<uint8_t> values) {
+  return DenseUI8ArrayAttr::get(context, values);
+}
+
+DenseUI16ArrayAttr Builder::getDenseUI16ArrayAttr(ArrayRef<uint16_t> values) {
+  return DenseUI16ArrayAttr::get(context, values);
+}
+
+DenseUI32ArrayAttr Builder::getDenseUI32ArrayAttr(ArrayRef<uint32_t> values) {
+  return DenseUI32ArrayAttr::get(context, values);
+}
+
+DenseUI64ArrayAttr Builder::getDenseUI64ArrayAttr(ArrayRef<uint64_t> values) {
+  return DenseUI64ArrayAttr::get(context, values);
+}
+
 DenseF32ArrayAttr Builder::getDenseF32ArrayAttr(ArrayRef<float> values) {
   return DenseF32ArrayAttr::get(context, values);
 }

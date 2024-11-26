@@ -166,6 +166,10 @@ public:
   DenseI16ArrayAttr getDenseI16ArrayAttr(ArrayRef<int16_t> values);
   DenseI32ArrayAttr getDenseI32ArrayAttr(ArrayRef<int32_t> values);
   DenseI64ArrayAttr getDenseI64ArrayAttr(ArrayRef<int64_t> values);
+  DenseUI8ArrayAttr getDenseUI8ArrayAttr(ArrayRef<uint8_t> values);
+  DenseUI16ArrayAttr getDenseUI16ArrayAttr(ArrayRef<uint16_t> values);
+  DenseUI32ArrayAttr getDenseUI32ArrayAttr(ArrayRef<uint32_t> values);
+  DenseUI64ArrayAttr getDenseUI64ArrayAttr(ArrayRef<uint64_t> values);
   DenseF32ArrayAttr getDenseF32ArrayAttr(ArrayRef<float> values);
   DenseF64ArrayAttr getDenseF64ArrayAttr(ArrayRef<double> values);
 

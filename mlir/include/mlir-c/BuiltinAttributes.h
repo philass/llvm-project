@@ -379,6 +379,18 @@ MLIR_CAPI_EXPORTED MlirAttribute mlirDenseI32ArrayGet(MlirContext ctx,
 MLIR_CAPI_EXPORTED MlirAttribute mlirDenseI64ArrayGet(MlirContext ctx,
                                                       intptr_t size,
                                                       int64_t const *values);
+MLIR_CAPI_EXPORTED MlirAttribute mlirDenseUI8ArrayGet(MlirContext ctx,
+                                                     intptr_t size,
+                                                     uint8_t const *values);
+MLIR_CAPI_EXPORTED MlirAttribute mlirDenseUI16ArrayGet(MlirContext ctx,
+                                                      intptr_t size,
+                                                      uint16_t const *values);
+MLIR_CAPI_EXPORTED MlirAttribute mlirDenseUI32ArrayGet(MlirContext ctx,
+                                                      intptr_t size,
+                                                      uint32_t const *values);
+MLIR_CAPI_EXPORTED MlirAttribute mlirDenseUI64ArrayGet(MlirContext ctx,
+                                                      intptr_t size,
+                                                      uint64_t const *values);
 MLIR_CAPI_EXPORTED MlirAttribute mlirDenseF32ArrayGet(MlirContext ctx,
                                                       intptr_t size,
                                                       float const *values);
@@ -399,6 +411,14 @@ MLIR_CAPI_EXPORTED int16_t mlirDenseI16ArrayGetElement(MlirAttribute attr,
 MLIR_CAPI_EXPORTED int32_t mlirDenseI32ArrayGetElement(MlirAttribute attr,
                                                        intptr_t pos);
 MLIR_CAPI_EXPORTED int64_t mlirDenseI64ArrayGetElement(MlirAttribute attr,
+                                                       intptr_t pos);
+MLIR_CAPI_EXPORTED uint8_t mlirDenseUI8ArrayGetElement(MlirAttribute attr,
+                                                     intptr_t pos);
+MLIR_CAPI_EXPORTED uint16_t mlirDenseUI16ArrayGetElement(MlirAttribute attr,
+                                                       intptr_t pos);
+MLIR_CAPI_EXPORTED uint32_t mlirDenseUI32ArrayGetElement(MlirAttribute attr,
+                                                       intptr_t pos);
+MLIR_CAPI_EXPORTED uint64_t mlirDenseUI64ArrayGetElement(MlirAttribute attr,
                                                        intptr_t pos);
 MLIR_CAPI_EXPORTED float mlirDenseF32ArrayGetElement(MlirAttribute attr,
                                                      intptr_t pos);

@@ -436,6 +436,10 @@ def DenseI8ArrayAttr : DenseArrayAttrBase<"DenseI8ArrayAttr", "int8_t", "i8">;
 def DenseI16ArrayAttr : DenseArrayAttrBase<"DenseI16ArrayAttr", "int16_t", "i16">;
 def DenseI32ArrayAttr : DenseArrayAttrBase<"DenseI32ArrayAttr", "int32_t", "i32">;
 def DenseI64ArrayAttr : DenseArrayAttrBase<"DenseI64ArrayAttr", "int64_t", "i64">;
+def DenseUI8ArrayAttr : DenseArrayAttrBase<"DenseUI8ArrayAttr", "uint8_t", "ui8">;
+def DenseUI16ArrayAttr : DenseArrayAttrBase<"DenseUI16ArrayAttr", "uint16_t", "ui16">;
+def DenseUI32ArrayAttr : DenseArrayAttrBase<"DenseUI32ArrayAttr", "uint32_t", "ui32">;
+def DenseUI64ArrayAttr : DenseArrayAttrBase<"DenseUI64ArrayAttr", "uint64_t", "ui64">;
 def DenseF32ArrayAttr : DenseArrayAttrBase<"DenseF32ArrayAttr", "float", "f32">;
 def DenseF64ArrayAttr : DenseArrayAttrBase<"DenseF64ArrayAttr", "double", "f64">;
 
