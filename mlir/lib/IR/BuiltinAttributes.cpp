@@ -768,6 +768,19 @@ struct DenseArrayAttrUtil<int32_t> : public DenseArrayAttrIntUtil<32> {};
 template <>
 struct DenseArrayAttrUtil<int64_t> : public DenseArrayAttrIntUtil<64> {};
 
+template <>
+struct DenseArrayAttrUtil<uint8_t> : public DenseArrayAttrIntUtil<8, IntegerType::Unsigned> {
+  static void printElement(raw_ostream &os, uint8_t value) {
+    os << static_cast<uint64_t>(value);
+  }
+};
+template <>
+struct DenseArrayAttrUtil<uint16_t> : public DenseArrayAttrIntUtil<16, IntegerType::Unsigned> {};
+template <>
+struct DenseArrayAttrUtil<uint32_t> : public DenseArrayAttrIntUtil<32, IntegerType::Unsigned> {};
+template <>
+struct DenseArrayAttrUtil<uint64_t> : public DenseArrayAttrIntUtil<64, IntegerType::Unsigned> {};
+
 /// Specialization for 32-bit floats.
 template <>
 struct DenseArrayAttrUtil<float> {
@@ -881,6 +894,10 @@ template class DenseArrayAttrImpl<int8_t>;
 template class DenseArrayAttrImpl<int16_t>;
 template class DenseArrayAttrImpl<int32_t>;
 template class DenseArrayAttrImpl<int64_t>;
+template class DenseArrayAttrImpl<uint8_t>;
+template class DenseArrayAttrImpl<uint16_t>;
+template class DenseArrayAttrImpl<uint32_t>;
+template class DenseArrayAttrImpl<uint64_t>;
 template class DenseArrayAttrImpl<float>;
 template class DenseArrayAttrImpl<double>;
 } // namespace detail
